@@ -1,0 +1,17 @@
+#!/bin/sh
+case "$1" in
+    vid|vids|video|mov|movie)
+        extensions="mp4|avi|wmv|mkv|m4v|f4v|mov|flv|webm"
+        ;;
+    pic|picture|pho|photo)
+        extensions="jpg|png|gif"
+        ;;
+    arc|zip)
+        extensions="rar|zip|7z"
+        ;;
+    doc)
+        extensions="pdf|djvu"
+        ;;
+    *)
+        exit 1
+esac

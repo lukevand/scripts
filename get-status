@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case "$1" in
+	volume)
+		summary=$(pactl list sinks | awk '/Volume: front-left/ { print $5; }')
+		;;
+	brightness)
+		summary=$(brightnessctl -m i | awk -F"," '{print $4}')
+		;;
+	song)
+		summary=$(mpc -f '%artist%' current)
+		body=$(mpc -f '%title%\n"%album%"\n%date%' current)
+        albumcover=$(album-cover current)
+        if [ -f "$albumcover" ]; then
+            icon=$(mpc -f '%file%' current)
+            icon=$TMP/$(echo "${icon%/*}" | tr -d ' /')
+            if [ ! -f "$icon" ]; then
+                convert "$albumcover" -resize 100x100 "$icon"
+            fi
+        fi
+		;;
+esac
+notify-send -u low -i "$icon" -- "$summary" "$body"
+

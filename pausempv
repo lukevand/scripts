@@ -1,0 +1,2 @@
+#!/bin/sh
+xdotool key --window "$(xdotool search --class mpv)" p

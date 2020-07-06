@@ -1,0 +1,10 @@
+#!/bin/sh
+where=$(command -v "$1")
+if ! file --dereference --brief "$where" | grep 'text executable' >/dev/null;then
+    printf '%s is not a text executable or is an alias\n' "$1" 2>&1
+    exit 1
+elif highlight --out-format=xterm256 --style=pablo "$where"; then
+    exit 0
+else
+    cat "$where"
+fi

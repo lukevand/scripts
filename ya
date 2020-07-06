@@ -1,0 +1,3 @@
+#!/bin/sh
+f="${1%%.*}"
+yasm -Worphan-labels -g dwarf2 -f elf64 "$1" -l "$f".lst && ld -g "$f".o && ./a.out

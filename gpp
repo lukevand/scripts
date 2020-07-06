@@ -1,0 +1,2 @@
+#!/bin/sh
+g++ -ggdb -Wall -Wshadow -Wunused -Wextra -Wuseless-cast -Wpedantic -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -std=c++14 "$1" && ./a.out < "$2"

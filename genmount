@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mount -t proc proc /mnt/gentoo/proc || exit 1
+mount --rbind /sys /mnt/gentoo/sys || exit 1
+mount --make-rslave /mnt/gentoo/sys || exit 1
+mount --rbind /dev /mnt/gentoo/dev || exit 1
+mount --make-rslave /mnt/gentoo/dev || exit 1
+env -i HOME=$HOME TERM=$TERM chroot /mnt/gentoo /bin/bash

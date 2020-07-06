@@ -1,0 +1,3 @@
+#!/bin/sh
+~/bin/youtube-dl --add-metadata -xic -f bestaudio/best -o "~/videos-audio/%(title)s.%(ext)s" "$@"
+

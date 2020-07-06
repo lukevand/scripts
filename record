@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ffmpeg -video_size 1920x1200 -framerate 25 -f x11grab -i :0.0 \
+   "/tmp/output_$(date +'%Y-%m-%d_%H:%M:%S').webm"

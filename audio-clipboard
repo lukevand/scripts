@@ -1,0 +1,2 @@
+#!/bin/sh
+notify-send -u low "Audio started" && audio-youtube "$(xsel -o -b)" && notify-send -u low "Audio download finished"

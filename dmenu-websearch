@@ -1,0 +1,2 @@
+#!/bin/sh
+echo | dmenu -p "Search: " | xargs -r -I% "$BROWSER" 'https://www.startpage.com/do/dsearch?query=%'

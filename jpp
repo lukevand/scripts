@@ -1,0 +1,2 @@
+#!/bin/sh
+javac -Xdiags:verbose "$1" && java -XX:+UseSerialGC -Xss64m -Dfile.encoding=UTF-8 Main < "$2"

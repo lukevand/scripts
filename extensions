@@ -1,0 +1,4 @@
+#!/bin/sh
+
+locate "${1:-$PWD}" | perl -nwl -e 's~.*/.*\.(.*)$~$1~g and !m|/| and print' \
+	| sort | uniq -c | sort -nr | head -n50

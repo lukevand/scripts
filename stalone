@@ -1,0 +1,2 @@
+#!/bin/sh
+stalonetray -c "$HOME"/bin/stalonetray > /dev/null 2>&1

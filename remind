@@ -1,0 +1,4 @@
+#!/bin/sh
+time=$1
+shift
+echo "notify-send -u critical \"$*\"; paplay --volume=15000 /usr/share/sounds/freedesktop/stereo/complete.oga" | at "$time"

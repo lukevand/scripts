@@ -1,0 +1,54 @@
+#!/bin/bash
+set -eu
+
+# imagemagick slop bash
+
+. ~/.mystuff
+
+outfile="${SCREENSHOT_DIR}/$(date +'%Y-%m-%d %H:%M:%S').png"
+refile="/sov/symlinked_pictures/re/$(date +'%Y-%m-%d_%H:%M:%S').png"
+
+slop_command_full() {
+    # $1 where the image is outputed
+	G=$(slop -b 20 -c 0.3,0.4,0.6,0.9 -n -f %g)
+        if [ "$G" = "0x0+0+0" ]; then
+            echo "Aborting" 2>&1
+            exit 5
+        fi
+        import -quality 100 -window root -crop "$G" \
+               "$1"
+}
+
+case $1 in
+    full)
+        import -quality 100 \
+               -window root "$outfile"
+        ;;
+
+    window)
+        import -quality 100 \
+               -screen "$outfile"
+        ;;
+
+	re)
+		slop_command_full "$refile"
+        ;;
+
+    choose)
+        slop_command_full "$outfile"
+        ;;
+
+    video)
+        read -r X Y W H < <(slop -n -f "%x %y %w %h")
+        # X=$(echo "$tmp" | awk '{print $1}')
+        # Y=$(echo "$tmp" | awk '{print $2}')
+        # W=$(echo "$tmp" | awk '{print $3}')
+        # H=$(echo "$tmp" | awk '{print $4}')
+        ffmpeg -f x11grab -s "${W}x${H}" \
+               -r 50 -i ":0.0+${X},${Y}" "/tmp/$(date +'%Y-%m-%d_%H:%M:%S').webm"
+        ;;
+
+    *)
+        printf "Invalid argument in %s\n" "$0"
+        ;;
+esac

@@ -1,0 +1,3 @@
+#!/bin/sh
+mpc --quiet pause
+xset dpms force off && slock && date > /tmp/mydate

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+f=$(mpc -f '%file%' "$1")
+dir="/home/cos/music/${f%/*}"
+if [ -f "$dir"/cover.jpg ]; then
+    icon="$dir"/cover.jpg
+elif [ -f "$dir"/cover.png ]; then
+    icon="$dir"/cover.png
+fi
+echo "$icon"

@@ -1,0 +1,2 @@
+#!/bin/sh
+tree -C "${1:-.}" | less -R

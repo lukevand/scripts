@@ -1,0 +1,4 @@
+#!/usr/lib/execline/bin/execlineb -S1
+backtick -n prog { which $1 }
+importas -n prog prog
+highlight -O xterm256 $prog

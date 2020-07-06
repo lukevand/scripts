@@ -1,0 +1,3 @@
+#!/bin/sh
+lynx -accept_all_cookies -cmd_script="$HOME"/.config/lynx_inspire 100.65.0.1 > "$TMP/lynxlog" && notify-send -u low "Connected" && exit 0
+notify-send "$0 failed"

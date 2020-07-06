@@ -1,0 +1,4 @@
+#!/bin/sh
+remind "now +$1 minutes" 'Break'
+# echo "notify-send -u critical 'Break'; paplay --volume=15000 /usr/share/sounds/freedesktop/stereo/complete.oga" | at now + "$1" minutes
+

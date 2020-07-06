@@ -1,0 +1,4 @@
+#!/bin/sh
+dpkg-query -L "$@" && exit 0
+apt-file show "$@"
+

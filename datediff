@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+d1=$(date -d "$1" +%s)
+d2=$(date -d "$2" +%s)
+if [ "$d1" -gt "$d2" ]; then
+    printf "%s days\n" "$(( (d1 - d2) / 86400 ))"
+    printf "%s minutes\n" "$(( (d1 - d2) / 60))"
+else
+    printf "%s days\n" "$(( (d2 - d1) / 86400 ))"
+    printf "%s minutes\n" "$(( (d2 - d1)/60 ))"
+fi

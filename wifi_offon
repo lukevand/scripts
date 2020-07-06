@@ -1,0 +1,4 @@
+#!/usr/lib/execline/bin/execlineb -P
+
+foreground { nmcli radio wifi off }
+nmcli radio wifi on

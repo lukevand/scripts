@@ -1,0 +1,4 @@
+#!/bin/sh
+f="$1"
+iofile=./io/"${f%%.*}".in
+g++ -ggdb -Wall -Wshadow -Wunused -Wextra -Wchkp -Wuseless-cast -Wpedantic -O2 -std=gnu++17 "$f" && ./a.out < "$iofile"

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ "$1" ]; then
+    today=$(date +'%s').txt
+else
+    today=$(date +'%F_%R:%S').txt
+fi
+vim ~/notes/"$today" && echo "$today written"

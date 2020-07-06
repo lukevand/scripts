@@ -1,0 +1,10 @@
+#!/bin/sh
+link=$(xsel -o -b)
+if ! echo "$link" | grep youtube; then
+    link=$(xsel -o)
+fi
+title=$(youtube-dl --get-title "$link")
+notify-send -u low "youtube-dl" "$title started"
+tsp youtube-dl "$link"
+tsp -w # wait for previous job to finish
+notify-send -u low "youtube-dl" "$title finished"

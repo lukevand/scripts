@@ -1,0 +1,2 @@
+#!/bin/sh
+locate --regex '^/home/cos/math/.*\.(djvu|pdf)$' | dmenu -i -l 40 | xargs -r -I% zathura "%"

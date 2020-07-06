@@ -1,0 +1,2 @@
+#!/usr/lib/execline/bin/execlineb -S0
+background { zathura $@ }
