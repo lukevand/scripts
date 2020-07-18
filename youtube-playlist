@@ -1,0 +1,2 @@
+#!/bin/sh
+youtube-dl -o "$HOME/videos/%(playlist)s/%(playlist_index)s-%(upload_date)s-%(title)s.%(ext)s"
