@@ -1,2 +1,0 @@
-#!/bin/sh
-gcc -g -Wall -Wshadow -Wextra -Werror -O2 -pedantic -std=gnu99 -lm "$1" && ./a.out < "$2"

@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# Check a url for a string
-
-# url='https://www.ucol.ac.nz/programmes/trades/electrical-appliance-serviceperson'
-# url='https://www.simonmarais.org/'
-# url='https://www.nzta.govt.nz/online-services/online-booking-system-offline'
-
+# Check a webpage for a string
 if ping -c 1 -n -q www.ucol.ac.nz >/dev/null 2>&1; then
    if curl -s "$url" | grep -i "We're taking the step of postponing driver testing" >/dev/null; then
        notify-send -u critical "Check out $url now!"

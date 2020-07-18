@@ -1,7 +1,3 @@
 #!/bin/sh
 . ~/bin/possible_extensions
-# It's like findthis, but with locate
-
-# echo locate --regex -i "^$(pwd)/.*$1.*"
-# Add in extra $2 refinement
 locate --regex -i "^$(pwd)/.*${2}.*\.(${extensions})$"
