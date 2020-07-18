@@ -1,0 +1,5 @@
+#!/bin/sh
+result=$(ag --nobreak --noheading "$@" | fzf -0 -1 | awk -F: '{printf "%s +%s\n", $1, $2}')
+
+# shellcheck disable=SC2086
+[ -n "$result" ] && vim $result

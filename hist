@@ -1,0 +1,2 @@
+#!/bin/sh
+[ -n "$1" ] && grep -i "$1" ~/.*history
