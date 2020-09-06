@@ -1,2 +1,2 @@
 #!/bin/sh
-find ~/bin ~/.config \( -wholename ~/.config/nvim/plugged -o -name .git -o -name lyrics -o -name watch_later -o -regex '.*transmission.*' \) -prune -o \( -type f -print \) | fzf --query="$1" -1 -0 | xargs -r "$EDITOR"
+find ~/bin ~/.config \( -wholename ~/.config/nvim/plugged -o -name .git -o -name lyrics -o -name watch_later -o -regex '.*transmission.*' -o -name chromium \) -prune -o \( -type f -print \) | fzf --query="$1" -1 -0 | xargs -r "$EDITOR"
